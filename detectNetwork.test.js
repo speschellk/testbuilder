@@ -188,5 +188,159 @@ describe('Maestro', function() {
   };
 });
 
-describe('should support China UnionPay')
-describe('should support Switch')
+describe('China UnionPay', function() {
+  var expect = chai.expect;
+  // China UnionPay always has a prefix of 622126-622925, 624-626, or 6282-6288 and a length of 16-19.
+
+  for (var prefix = 622126; prefix <= 622925; prefix++) {
+    (function(prefix) {
+      it('has a prefix of ' + prefix + ' and a length of 16', function() {
+        expect(detectNetwork(prefix + '0'.repeat(10))).to.equal('China UnionPay');
+      });
+      it('has a prefix of ' + prefix + ' and a length of 17', function() {
+        expect(detectNetwork(prefix + '0'.repeat(11))).to.equal('China UnionPay');
+      });
+      it('has a prefix of ' + prefix + ' and a length of 18', function() {
+        expect(detectNetwork(prefix + '0'.repeat(12))).to.equal('China UnionPay');
+      });
+      it('has a prefix of ' + prefix + ' and a length of 19', function() {
+        expect(detectNetwork(prefix + '0'.repeat(13))).to.equal('China UnionPay');
+      });
+    })(prefix)
+  };
+
+  for (var prefix = 624; prefix <= 626; prefix++) {
+    (function(prefix) {
+      it('has a prefix of ' + prefix + ' and a length of 16', function() {
+        expect(detectNetwork(prefix + '0'.repeat(13))).to.equal('China UnionPay');
+      });
+      it('has a prefix of ' + prefix + ' and a length of 17', function() {
+        expect(detectNetwork(prefix + '0'.repeat(14))).to.equal('China UnionPay');
+      });
+      it('has a prefix of ' + prefix + ' and a length of 18', function() {
+        expect(detectNetwork(prefix + '0'.repeat(15))).to.equal('China UnionPay');
+      });
+      it('has a prefix of ' + prefix + ' and a length of 19', function() {
+        expect(detectNetwork(prefix + '0'.repeat(16))).to.equal('China UnionPay');
+      });
+    })(prefix)
+  };
+
+  for (var prefix = 6282; prefix <= 6288; prefix++) {
+    (function(prefix) {
+      it('has a prefix of ' + prefix + ' and a length of 16', function() {
+        expect(detectNetwork(prefix + '0'.repeat(12))).to.equal('China UnionPay');
+      });
+      it('has a prefix of ' + prefix + ' and a length of 17', function() {
+        expect(detectNetwork(prefix + '0'.repeat(13))).to.equal('China UnionPay');
+      });
+      it('has a prefix of ' + prefix + ' and a length of 18', function() {
+        expect(detectNetwork(prefix + '0'.repeat(14))).to.equal('China UnionPay');
+      });
+      it('has a prefix of ' + prefix + ' and a length of 19', function() {
+        expect(detectNetwork(prefix + '0'.repeat(15))).to.equal('China UnionPay');
+      });
+    })(prefix)
+  };
+});
+
+
+describe('Switch', function() {
+  var expect = chai.expect;
+  // Switch always has a prefix of 4903, 4905, 4911, 4936, 564182, 633110, 6333, or 6759 and a length of 16, 18, or 19.
+  it('has a prefix of 4903 and a length of 16', function() {
+    expect(detectNetwork('4903567890123456')).to.equal('Switch');
+  });
+
+  it('has a prefix of 4903 and a length of 18', function() {
+    expect(detectNetwork('490356789012345678')).to.equal('Switch');
+  });
+
+  it('has a prefix of 4903 and a length of 19', function() {
+    expect(detectNetwork('4903567890123456789')).to.equal('Switch');
+  });
+
+  it('has a prefix of 4905 and a length of 16', function() {
+    expect(detectNetwork('4905567890123456')).to.equal('Switch');
+  });
+
+  it('has a prefix of 4905 and a length of 18', function() {
+    expect(detectNetwork('490556789012345678')).to.equal('Switch');
+  });
+
+  it('has a prefix of 4905 and a length of 19', function() {
+    expect(detectNetwork('4905567890123456789')).to.equal('Switch');
+  });
+
+  it('has a prefix of 4911 and a length of 16', function() {
+    expect(detectNetwork('4911567890123456')).to.equal('Switch');
+  });
+
+  it('has a prefix of 4911 and a length of 18', function() {
+    expect(detectNetwork('491156789012345678')).to.equal('Switch');
+  });
+
+  it('has a prefix of 4911 and a length of 19', function() {
+    expect(detectNetwork('4911567890123456789')).to.equal('Switch');
+  });
+
+  it('has a prefix of 4936 and a length of 16', function() {
+    expect(detectNetwork('4936567890123456')).to.equal('Switch');
+  });
+
+  it('has a prefix of 4936 and a length of 18', function() {
+    expect(detectNetwork('493656789012345678')).to.equal('Switch');
+  });
+
+  it('has a prefix of 4936 and a length of 19', function() {
+    expect(detectNetwork('4936567890123456789')).to.equal('Switch');
+  });
+
+  it('has a prefix of 564182 and a length of 16', function() {
+    expect(detectNetwork('5641827890123456')).to.equal('Switch');
+  });
+
+  it('has a prefix of 564182 and a length of 18', function() {
+    expect(detectNetwork('564182789012345678')).to.equal('Switch');
+  });
+
+  it('has a prefix of 564182 and a length of 19', function() {
+    expect(detectNetwork('5641827890123456789')).to.equal('Switch');
+  });
+
+  it('has a prefix of 633110 and a length of 16', function() {
+    expect(detectNetwork('6331107890123456')).to.equal('Switch');
+  });
+
+  it('has a prefix of 633110 and a length of 18', function() {
+    expect(detectNetwork('633110789012345678')).to.equal('Switch');
+  });
+
+  it('has a prefix of 633110 and a length of 19', function() {
+    expect(detectNetwork('6331107890123456789')).to.equal('Switch');
+  });
+
+  it('has a prefix of 6333 and a length of 16', function() {
+    expect(detectNetwork('6333107890123456')).to.equal('Switch');
+  });
+
+  it('has a prefix of 6333 and a length of 18', function() {
+    expect(detectNetwork('633310789012345678')).to.equal('Switch');
+  });
+
+  it('has a prefix of 6333 and a length of 19', function() {
+    expect(detectNetwork('6333107890123456789')).to.equal('Switch');
+  });
+
+  it('has a prefix of 6759 and a length of 16', function() {
+    expect(detectNetwork('6759107890123456')).to.equal('Switch');
+  });
+
+  it('has a prefix of 6759 and a length of 18', function() {
+    expect(detectNetwork('675910789012345678')).to.equal('Switch');
+  });
+
+  it('has a prefix of 6759 and a length of 19', function() {
+    expect(detectNetwork('6759107890123456789')).to.equal('Switch');
+  });
+});
