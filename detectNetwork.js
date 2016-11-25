@@ -20,7 +20,7 @@ var networks = {
   "American Express": {length: [15],         prefix: ["34", "37"]},
   "Visa":             {length: [13, 16, 19], prefix: ["4"]},
   "MasterCard":       {length: [16],         prefix: ["51", "52", "53", "54", "55"]},
-  "Discover":         {length: [16, 19],     prefix: ["6011", "644-649", "65"]},
+  "Discover":         {length: [16, 19],     prefix: ["6011", "644", "645", "646", "647", "648", "649", "65"]},
   "Maestro":          {length: [12, 13, 14, 15, 16, 17, 18, 19], prefix: ["5018", "5020", "5038", "6304"]}
 };
 
