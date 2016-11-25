@@ -103,16 +103,16 @@ describe('MasterCard', function() {
   //   http://chaijs.com/api/bdd/
   var expect = chai.expect;
 
-  it('has a prefix of 51 and a length of 14', function() {
-    expect(detectNetwork('5112345678901234')).to.equal('MasterCard');
+  it('has a prefix of 51 and a length of 16', function() {
+    expect(detectNetwork('5134567890123456')).to.equal('MasterCard');
   });
 
-  it('has a prefix of 52 and a length of 14', function() {
-    expect(detectNetwork('5212345678901234')).to.equal('MasterCard');
+  it('has a prefix of 52 and a length of 16', function() {
+    expect(detectNetwork('5234567890123456')).to.equal('MasterCard');
   });
 
-  it('has a prefix of 53 and a length of 14', function() {
-    expect(detectNetwork('5312345678901234')).to.equal('MasterCard');
+  it('has a prefix of 53 and a length of 16', function() {
+    expect(detectNetwork('5334567890123456')).to.equal('MasterCard');
   });
 
   // You can also use should instead of expect, which changes the style
